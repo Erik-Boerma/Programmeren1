@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Will you be my Valentine?</title>
+  <title>Menie, wil je mijn Valentijn zijn?</title>
 
-  <!-- Confetti library -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-  
+
   <style>
     :root {
       --bg1: #ffd6e7;
@@ -60,6 +59,7 @@
     h1 {
       font-size: clamp(26px, 4vw, 44px);
       margin: 12px 0 18px;
+      text-transform: lowercase; /* Houdt de stijl van het origineel aan */
     }
 
     .button-zone {
@@ -133,7 +133,6 @@
   <canvas id="confettiCanvas"></canvas>
 
   <main class="card">
-    <!-- ANIMAL WITH HEART -->
     <svg class="art" viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="fur" x1="0" x2="1">
@@ -171,22 +170,21 @@
             fill="#ff7aa2"/>
     </svg>
 
-    <h1>nirali will you be my valentine?</h1>
+    <h1>menie, wil je mijn valentijn zijn?</h1>
 
     <section class="button-zone" id="zone">
-      <button id="yesBtn">Yes</button>
-      <button id="noBtn">No</button>
+      <button id="yesBtn">Ja</button>
+      <button id="noBtn">Nee</button>
     </section>
 
-    <!-- HINT -->
-    <div class="hint" id="hint">“No” seems a bit shy 😈</div>
+    <div class="hint" id="hint">“Nee” lijkt een beetje verlegen 😈</div>
 
     <section class="result" id="result">
-      <h2>YAY! 🎉</h2>
+      <h2>JOEPIE! 🎉</h2>
       <img
         class="fireworks"
         src="https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif"
-        alt="Fireworks"
+        alt="Vuurwerk"
       />
     </section>
   </main>
@@ -243,14 +241,14 @@
       }, 300);
     }
 
-    /* ---------- YES BUTTON GROWS ---------- */
+    /* ---------- JA-KNOP GROEIT ---------- */
     let yesScale = 1;
     function growYes() {
       yesScale = Math.min(2.2, yesScale + 0.1);
       yesBtn.style.transform = `translateY(-50%) scale(${yesScale})`;
     }
 
-    /* ---------- NO BUTTON RUNS AWAY ---------- */
+    /* ---------- NEE-KNOP RENt WEG ---------- */
     function clamp(n, min, max) {
       return Math.max(min, Math.min(max, n));
     }
@@ -289,10 +287,10 @@
 
     noBtn.addEventListener("click", e => e.preventDefault());
 
-    /* ---------- YES CLICK ---------- */
+    /* ---------- KLIK OP JA ---------- */
     yesBtn.addEventListener("click", () => {
       zone.style.display = "none";
-      hint.style.display = "none";     // HIDE THE HINT
+      hint.style.display = "none";     // VERBERG DE HINT
       result.style.display = "block";
       resizeConfettiCanvas();
       fullScreenConfetti();
